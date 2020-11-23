@@ -1,0 +1,27 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    database-platform: H2
+    open-in-view: false
+
+  datasource:
+    url: jdbc:h2:~/test
+
+
+  redis:
+    host: localhost
+    port: 6500
+
+  jackson:
+    date-format: 'yyyy-MM-dd HH:mm:ss.sss'
+
+logging:
+  level:
+    - org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+server:
+  port: 8000
+  error:
+    include-stacktrace: on_trace_param

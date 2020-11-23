@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="144.0" y="1112.0">com.kakaopay.spraying.domain.cache.entity.Spray</node>
+    <node x="2157.5" y="708.0">com.kakaopay.spraying.service.impl.SprayServiceImpl</node>
+    <node x="119.5" y="863.5">com.kakaopay.spraying.domain.cache.entity.repository.SprayCacheRepository</node>
+    <node x="1688.0" y="160.0">com.kakaopay.spraying.work.WorkEventPublisher</node>
+    <node x="1295.0" y="407.0">com.kakaopay.spraying.domain.entity.Receiver</node>
+    <node x="3326.5" y="829.0">com.kakaopay.spraying.api.SprayApiController</node>
+    <node x="1591.5" y="451.5">com.kakaopay.spraying.domain.repository.ReceiverRepository</node>
+    <node x="59.5" y="451.5">com.kakaopay.spraying.domain.repository.SprayHistoryRepository</node>
+    <node x="1766.0" y="-22.5">com.kakaopay.spraying.work.WorkEvent</node>
+    <node x="2769.5" y="1000.0">com.kakaopay.spraying.api.ReceiveApiController</node>
+    <node x="850.5" y="138.0">com.kakaopay.spraying.work.WorkEventListener</node>
+    <node x="923.0" y="363.0">com.kakaopay.spraying.domain.entity.MoneySpray</node>
+    <node x="2757.5" y="829.5">com.kakaopay.spraying.service.SprayService</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.kakaopay.spraying.domain.entity.MoneySpray" target="com.kakaopay.spraying.domain.entity.Receiver">
+      <point x="117.0" y="0.0" />
+      <point x="-105.0" y="0.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.domain.repository.SprayHistoryRepository" target="com.kakaopay.spraying.domain.entity.MoneySpray">
+      <point x="380.5" y="0.0" />
+      <point x="-117.0" y="0.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.service.impl.SprayServiceImpl" target="com.kakaopay.spraying.domain.cache.entity.Spray">
+      <point x="0.0" y="172.0" />
+      <point x="2400.0" y="1240.0" />
+      <point x="96.0" y="0.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.work.WorkEventPublisher" target="com.kakaopay.spraying.work.WorkEvent">
+      <point x="0.0" y="-40.0" />
+      <point x="0.0" y="62.5" />
+    </edge>
+    <edge source="com.kakaopay.spraying.service.impl.SprayServiceImpl" target="com.kakaopay.spraying.domain.cache.entity.repository.SprayCacheRepository">
+      <point x="-242.5" y="0.0" />
+      <point x="120.5" y="0.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.service.impl.SprayServiceImpl" target="com.kakaopay.spraying.work.WorkEventPublisher">
+      <point x="-40.0" y="-172.0" />
+      <point x="2360.0" y="200.0" />
+      <point x="192.0" y="0.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.work.WorkEventListener" target="com.kakaopay.spraying.domain.repository.SprayHistoryRepository">
+      <point x="-189.5" y="40.0" />
+      <point x="440.0" y="240.0" />
+      <point x="0.0" y="-28.5" />
+    </edge>
+    <edge source="com.kakaopay.spraying.work.WorkEventListener" target="com.kakaopay.spraying.domain.entity.Receiver">
+      <point x="189.5" y="0.0" />
+      <point x="1400.0" y="200.0" />
+      <point x="0.0" y="-73.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.service.impl.SprayServiceImpl" target="com.kakaopay.spraying.domain.repository.ReceiverRepository">
+      <point x="-80.0" y="-172.0" />
+      <point x="2320.0" y="480.0" />
+      <point x="208.5" y="0.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.work.WorkEventListener" target="com.kakaopay.spraying.work.WorkEvent">
+      <point x="0.0" y="-62.0" />
+      <point x="1040.0" y="40.0" />
+      <point x="-114.0" y="0.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.domain.entity.Receiver" target="com.kakaopay.spraying.domain.entity.MoneySpray">
+      <point x="-40.0" y="-73.0" />
+      <point x="1360.0" y="320.0" />
+      <point x="1080.0" y="320.0" />
+      <point x="40.0" y="-117.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.service.impl.SprayServiceImpl" target="com.kakaopay.spraying.domain.repository.SprayHistoryRepository">
+      <point x="-242.5" y="-40.0" />
+      <point x="440.0" y="840.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="com.kakaopay.spraying.api.SprayApiController" target="com.kakaopay.spraying.service.SprayService">
+      <point x="-273.5" y="0.0" />
+      <point x="242.5" y="0.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.work.WorkEventListener" target="com.kakaopay.spraying.domain.entity.MoneySpray">
+      <point x="0.0" y="62.0" />
+      <point x="0.0" y="-117.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.domain.cache.entity.repository.SprayCacheRepository" target="com.kakaopay.spraying.domain.cache.entity.Spray">
+      <point x="0.0" y="16.5" />
+      <point x="0.0" y="-128.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.service.impl.SprayServiceImpl" target="com.kakaopay.spraying.work.WorkEvent">
+      <point x="0.0" y="-172.0" />
+      <point x="2400.0" y="40.0" />
+      <point x="114.0" y="0.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.domain.repository.ReceiverRepository" target="com.kakaopay.spraying.domain.entity.Receiver">
+      <point x="-208.5" y="0.0" />
+      <point x="105.0" y="0.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.service.impl.SprayServiceImpl" target="com.kakaopay.spraying.domain.entity.MoneySpray">
+      <point x="-242.5" y="-80.0" />
+      <point x="1040.0" y="800.0" />
+      <point x="0.0" y="117.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.work.WorkEventListener" target="com.kakaopay.spraying.domain.cache.entity.Spray">
+      <point x="-189.5" y="0.0" />
+      <point x="0.0" y="200.0" />
+      <point x="0.0" y="1240.0" />
+      <point x="-96.0" y="0.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.service.impl.SprayServiceImpl" target="com.kakaopay.spraying.service.SprayService">
+      <point x="242.5" y="0.0" />
+      <point x="-242.5" y="0.0" />
+    </edge>
+    <edge source="com.kakaopay.spraying.api.ReceiveApiController" target="com.kakaopay.spraying.service.SprayService">
+      <point x="0.0" y="-40.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+  </edges>
+  <settings layout="Orthogonal" zoom="1.0" x="820.0" y="454.5" />
+  <SelectedNodes>
+    <node>com.kakaopay.spraying.api.ReceiveApiController</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
