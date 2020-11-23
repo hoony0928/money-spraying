@@ -53,11 +53,12 @@
 5. 각 제약사항에 대해 Mock 기반 Unit Test로 검증한다.
 
 ## 테스트 및 API Doc
-http://localhost:8000/swagger-ui/
-
-* 뿌리기: http://localhost:8000/swagger-ui/#/%EB%BF%8C%EB%A6%AC%EA%B8%B0/sprayingUsingPOST
-* 뿌리기 상태 조회: http://localhost:8000/swagger-ui/#/%EB%BF%8C%EB%A6%AC%EA%B8%B0/getHistoryUsingGET
-* 받기: http://localhost:8000/swagger-ui/#/%EB%B0%9B%EA%B8%B0/receiveUsingPATCH
+* 뿌리기 API
+    * http://localhost:8000/swagger-ui/#/%EB%BF%8C%EB%A6%AC%EA%B8%B0/sprayingUsingPOST
+* 뿌리기 상태 조회 API
+    * http://localhost:8000/swagger-ui/#/%EB%BF%8C%EB%A6%AC%EA%B8%B0/getHistoryUsingGET
+* 받기 API
+    * http://localhost:8000/swagger-ui/#/%EB%B0%9B%EA%B8%B0/receiveUsingPATCH
 
 
 ## 구조 설계
