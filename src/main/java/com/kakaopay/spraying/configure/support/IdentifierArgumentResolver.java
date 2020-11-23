@@ -1,5 +1,7 @@
 package com.kakaopay.spraying.configure.support;
 
+import com.kakaopay.spraying.exception.SprayResponseException;
+import com.kakaopay.spraying.exception.SprayResponseException.SprayErrors;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
@@ -22,9 +24,14 @@ public class IdentifierArgumentResolver implements HandlerMethodArgumentResolver
                                   ModelAndViewContainer mavContainer,
                                   NativeWebRequest webRequest,
                                   WebDataBinderFactory binderFactory) {
-        final int userId = Integer.parseInt(Objects.requireNonNull(
-                webRequest.getHeader(USER_IDENTIFY_KEY)));
-        final String roomId = webRequest.getHeader(ROOM_IDENTIFY_KEY);
-        return Identifier.of(userId, roomId);
+
+        try {
+            final int userId = Integer.parseInt(Objects.requireNonNull(
+                    webRequest.getHeader(USER_IDENTIFY_KEY)));
+            final String roomId = Objects.requireNonNull(webRequest.getHeader(ROOM_IDENTIFY_KEY));
+            return Identifier.of(userId, roomId);
+        } catch (NullPointerException | NumberFormatException e) {
+            throw SprayResponseException.of(SprayErrors.NO_IDENTIFYING_INFORMATION);
+        }
     }
 }
