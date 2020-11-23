@@ -4,11 +4,11 @@
 - Java8
 - Spring Boot 2.3.6
 - JPA
-- Redis
 - H2
-- Embedded redis
+- Redis
 - Junit5
 - Gradle
+- Swagger
 
 ## 요구 사항
 * 뿌리기, 받기, 조회 기능을 수행하는 REST API 를 구현
@@ -40,7 +40,7 @@
 1. 예측 불가능한 3자리 Token 생성하기
     * 각 자리의 문자를 난수를 활용하여 예측 불가능하게 생성한다.
 2. 뿌린 건은 10분 간만 유효하다.
-    * 짧은 시간동안만 유효하므로, 캐싱 기반으로 구현한다.
+    * 짧은 시간 동안만 유효하므로, 캐싱 기반으로 구현한다.
     * Token 발급 시 Expiration 정보를 추가하여 만료 체크가 가능하게 한다.
     * Redis Hash 구조를 사용하고, Key의 TTL을 10분으로 설정하여 만료 후 자동 삭제되도록 한다.
 3. 뿌릴 금액 분배 및 뿌리기 당 한 사용자만 받기
@@ -54,6 +54,11 @@
 
 ## 테스트 및 API Doc
 http://localhost:8000/swagger-ui/
+
+* 뿌리기: http://localhost:8000/swagger-ui/#/%EB%BF%8C%EB%A6%AC%EA%B8%B0/sprayingUsingPOST
+* 뿌리기 상태 조회: http://localhost:8000/swagger-ui/#/%EB%BF%8C%EB%A6%AC%EA%B8%B0/getHistoryUsingGET
+* 받기: http://localhost:8000/swagger-ui/#/%EB%B0%9B%EA%B8%B0/receiveUsingPATCH
+
 
 ## 구조 설계
 ### 엔티티 구조
@@ -88,20 +93,20 @@ http://localhost:8000/swagger-ui/
 +---------------------------+                   +---------------------------+
 |        MoneySpray         |                   |         Receiver          |
 +---------------------------+                   +---------------------------+
-|  + token                  |                   |  + receiverId             |
+|  PK token                 |                   |  + receiverId             |
 |                           |                   |                           |
-|  + user                   |                   |  + token                  |
-|                           |                  /|                           |
-|  + money                  |         +------|--|  + user                   |
-|                           |-|-------+        \|                           |
-|  + createdAt              |                   |  + money                  |
+|  + user                   |                  /|  + user                   |
+|                           |         +------|--|                           |
+|  + money                  |         |        \|  + money                  |
+|                           |-|-------+         |                           |
+|  + createdAt              |                   |  FK token                 |
 |                           |                   |                           |
-|  + expiredAt              |                   |  + MoneySpray             |
-|                           |                   |                           |
-|  + receivers              |                   +---------------------------+
+|  + expiredAt              |                   +---------------------------+
+|                           |
+|  + receivers              |
 |                           |
 +---------------------------+
-```                                          
+```                                        
 
 ### 전체 클래스 Diagram
 [전체구성도 바로가기](전체구성도.pdf)                                       
