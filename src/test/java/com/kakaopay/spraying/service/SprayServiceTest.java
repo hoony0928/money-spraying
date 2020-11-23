@@ -239,6 +239,6 @@ class SprayServiceTest {
         Exception exception = assertThrows(SprayResponseException.class,
                 () -> sprayingService.getHistory(token, idAsSpray, current));
 
-        assertTrue(exception.getMessage().contains(SprayErrors.RECEIVED_HISTORY_DOES_NOT_EXIST.getReason()));
+        assertTrue(exception.getMessage().contains(SprayErrors.SPRAY_HISTORY_DOES_NOT_EXIST.getReason()));
     }
 }

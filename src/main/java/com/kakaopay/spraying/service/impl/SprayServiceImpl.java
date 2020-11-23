@@ -75,7 +75,7 @@ public class SprayServiceImpl implements SprayService {
                 token, identifier.toEntity(), current.minusDays(7), current);
 
         return sprayOptional.map(SprayStateResponseDto::of)
-                .orElseThrow(() -> SprayResponseException.of(SprayErrors.RECEIVED_HISTORY_DOES_NOT_EXIST));
+                .orElseThrow(() -> SprayResponseException.of(SprayErrors.SPRAY_HISTORY_DOES_NOT_EXIST));
     }
 
     private Spray makeSpray(
